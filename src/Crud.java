@@ -41,7 +41,7 @@ public class Crud {
             ObjectInputStream lectorobj = new ObjectInputStream(in);
             temporal = (Estudiante []) lectorobj.readObject();
             for (int i=0; i<temporal.length; i++ ){
-                int nc = temporal[i].getNumeroDeControl();
+                int nc = temporal[i].getNumerodeControl();
                 String nombre = temporal[i].getNombre();
                 estudiantes[i] = new Estudiante(nc, nombre );
             }
@@ -75,8 +75,8 @@ public class Crud {
         boolean encontrado = false;
         for(int i=0;i<estudiantes.length; i++){
             if(estudiantes[i]!=null) {
-                if(estudiantes[i].getNumeroDeControl() == numControl) {
-                    respuesta = "Num control: " + estudiantes[i].getNumeroDeControl() +
+                if(estudiantes[i].getNumerodeControl() == numControl) {
+                    respuesta = "Num control: " + estudiantes[i].getNumerodeControl() +
                             " Nombre: " + estudiantes[i].getNombre();
                     encontrado = true;
                     break;
@@ -94,7 +94,7 @@ public class Crud {
         }
         Estudiante temporal [] = new Estudiante[tam];
         for (int i=0; i<temporal.length; i++ ){
-            int nc = estudiantes[i].getNumeroDeControl();
+            int nc = estudiantes[i].getNumerodeControl();
             String nombre = estudiantes[i].getNombre();
             temporal[i] = new Estudiante(nc, nombre );
         }
