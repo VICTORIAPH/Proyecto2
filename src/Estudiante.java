@@ -9,10 +9,13 @@ public class Estudiante  {
         this.nombre=nombre;
         this.numeroControl=numeroControl;
     }
+
+    @Override
+    public String toString() {
+        return "Soy "+nombre+" con numero de control: "+numeroControl;
+    }
+
     public String getNombre() {
-
-
-
         return nombre;
     }
 

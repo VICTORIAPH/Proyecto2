@@ -8,14 +8,15 @@ public class Main {
 
     private static void menu() {
         Scanner teclado = new Scanner(System.in);
-        System.out.println("Que deseas hacer? +\n+"+
-                "1.- Crear +\n+" +
-                "2.-Leer +\n+" +
-                "3.-Agreagar +\n" +
-                "4.-Consultar +\n" +
-                "5.-Modificar +\n" +
-                "6.-Eliminar +\n" +
-                "7.-Grabar +\n");
+        System.out.println("Que deseas hacer? \n"+
+                "1.- Crear \n" +
+                "2.-Leer \n" +
+                "3.-Agreagar \n" +
+                "4.-Consultar \n" +
+                "5.-Modificar \n" +
+                "6.-Eliminar \n" +
+                "7.-Grabar \n" +
+                "8.-Salir \n");
 
         switch (teclado.nextInt()){
             case 1:
@@ -39,6 +40,8 @@ public class Main {
             case 7:
                 menu();
                 break;
+            case 8:
+             break;
         }
     }
 }
