@@ -1,11 +1,11 @@
-public class Estudiante  {
+import java.io.Serializable;
+
+public class Estudiante  implements Serializable {
 
     private String nombre;
     private int NumerodeControl;
 
-
-
-    public Estudiante(int numeroControl, String nombre){
+    Estudiante(int numeroControl, String nombre){
         this.nombre=nombre;
         this.NumerodeControl=numeroControl;
     }

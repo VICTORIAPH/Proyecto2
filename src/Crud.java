@@ -5,15 +5,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Scanner;
 
 public class Crud {
-
 
     private String archivo;
     private Estudiante estudiantes[] = null;  //un arreglo estudiantes de tipo estudiante
     private int libre;
 
-    public Crud(String archivo) {//construstor
+    Crud(String archivo) {//construstor
         this.archivo = archivo;
         estudiantes = new Estudiante[100];
         libre = 0;
@@ -40,7 +40,7 @@ public class Crud {
             FileInputStream in = new FileInputStream(objFile);
             ObjectInputStream lectorobj = new ObjectInputStream(in);
             temporal = (Estudiante []) lectorobj.readObject();
-            for (int i=0; i<temporal.length; i++ ){
+            for (int i=0; i<temporal.length; i++) {
                 int nc = temporal[i].getNumerodeControl();
                 String nombre = temporal[i].getNombre();
                 estudiantes[i] = new Estudiante(nc, nombre );
@@ -54,22 +54,22 @@ public class Crud {
             System.out.println("Falla de entrada salida");
         }
     }
-
     public void agregar(){
-        Estudiante temagre[]=new Estudiante[0];
+        Scanner teclado = new Scanner(System.in);
+        for (int i = 0; i < estudiantes.length ; i++) {
+            if (estudiantes[i] == null) {
+                System.out.println("ingrese # de control");
+                    int nc = teclado.nextInt();
+                System.out.println("Ingrese nombre del estudiante");
+                    String nombre = teclado.nextLine();
+                estudiantes [i] = new Estudiante(nc, nombre);
+                System.out.println("Se agregó con exito!");
+                break;
+            }
 
+        }
 
     }
-
-
-
-
-
-
-
-
-
-
     public String consultar(int numControl){
         String respuesta =" No se ha encontrado ";
         boolean encontrado = false;
@@ -85,7 +85,6 @@ public class Crud {
         }
         return respuesta;
     }
-
     public void grabar(){
         int tam=0;
         for(int i=0;i<estudiantes.length; i++){
